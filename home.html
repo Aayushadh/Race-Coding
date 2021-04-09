@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+<script src="acorn_interpreter.js"></script>
+  <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
+  <script src="https://unpkg.com/blockly/blocks_compressed.js"></script>
+  <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
+  <script src="https://unpkg.com/blockly/msg/en.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body onload="startGame()" style="padding: 30px;">
+
+
+    <div class="row"> 
+        <div class="col-sm" id="game">
+            <br>  
+            <h3 id="rpos"></h2>
+            <h3 id="gpos"></h2>
+            <h3 id="result"></h3>
+
+        </div>
+        <div class="col-sm">
+            <div style="text-align:center;width:30;">
+                <button onmousedown="moveup1()"  >UP</button><br><br>
+                <button onmousedown="moveleft1()"  >LEFT</button>
+                <button onmousedown="moveright1()" >RIGHT</button><br><br>
+          <button onmousedown="movedown1()"  >DOWN</button>
+        </div>
+        </div>
+        <div class="col-sm">
+            <button onclick="runCode()" id="runButton" type="button" class="btn btn-warning" style="color:white"><b>Run</b></button>
+            <div id="blocklyDiv"
+            style="display: inline-block; height: 500px; width: 100%"></div>
+            <textarea id="output" disabled="disabled"
+            style="display:none;">
+        </textarea>
+        </div>
+    </div>
+   
+
+
+
+<xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
+    <category name="Logic" colour="%{BKY_LOGIC_HUE}">
+        <block type="controls_if"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_operation"></block>
+        <block type="logic_negate"></block>
+        <block type="logic_boolean"></block>
+    </category>
+    <category name="Moves" colour="%{BKY_LOGIC_HUE}">
+        <block type="move_right"></block>
+        <block type="move_left"></block>
+        <block type="move_up"></block>
+        <block type="move_down"></block>
+
+    </category>
+    <category name="Loops" colour="%{BKY_LOOPS_HUE}">
+        <block type="controls_repeat_ext">
+            <value name="TIMES">
+                <block type="math_number">
+                    <field name="NUM">10</field>
+                </block>
+            </value>
+        </block>
+        <block type="controls_whileUntil"></block>
+    </category>
+    <category name="Math" colour="%{BKY_MATH_HUE}">
+        <block type="math_number">
+            <field name="NUM">123</field>
+        </block>
+        <block type="math_arithmetic"></block>
+        <block type="math_single"></block>
+    </category>
+   
+        <block type="text"></block>
+        <block type="text_length"></block>
+        <block type="text_print"></block>
+        <block type="text_prompt_ext">
+            <value name="TEXT">
+                <block type="text"></block>
+            </value>
+        </block>
+    
+    <sep></sep>
+    <category name="Variables" custom="VARIABLE" colour="%{BKY_VARIABLES_HUE}">
+    </category>
+    <category name="Functions" custom="PROCEDURE" colour="%{BKY_PROCEDURES_HUE}">
+    </category>
+</xml>
+
+<xml xmlns="https://developers.google.com/blockly/xml" id="startBlocks" style="display: none">
+   <block type="move_up"></block>   
+  </xml>
+     
+ 
+
+
+<script src="main.js"></script>
+<script src="move_right.js"></script>
+<script src="move_left.js"></script>
+<script src="move_up.js"></script>
+<script src="move_down.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
